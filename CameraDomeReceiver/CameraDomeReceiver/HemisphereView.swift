@@ -8,7 +8,7 @@ struct HemisphereView: View {
     @State private var backHemisphereEntity: ModelEntity?
     @State private var frontHemisphereEntity: ModelEntity?
     @State private var fullHemisphereEntity: ModelEntity?
-    @State private var useSplitHemisphere = false
+    @State private var useSplitHemisphere = true
 
     var body: some View {
         VStack {
@@ -167,8 +167,8 @@ extension MeshResource {
                 normals.append(normalize(SIMD3<Float>(x, y, z)))
 
                 let u: Float = back
-                    ? (theta - Float.pi) / Float.pi
-                    : theta / Float.pi
+                    ? 1.0 - (0.5 + 0.5 * ((theta - Float.pi) / Float.pi))
+                    : 1.0 - (0.5 * (theta / Float.pi))
                 uvs.append(SIMD2<Float>(u, v))
             }
         }
