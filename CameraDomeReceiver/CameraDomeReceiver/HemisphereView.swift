@@ -8,7 +8,7 @@ struct HemisphereView: View {
     @State private var backHemisphereEntity: ModelEntity?
     @State private var frontHemisphereEntity: ModelEntity?
     @State private var fullHemisphereEntity: ModelEntity?
-    @State private var useSplitHemisphere = true
+    @Binding var useSplitHemisphere: Bool
 
     var body: some View {
         VStack {
@@ -50,7 +50,7 @@ struct HemisphereView: View {
                     hemisphere.components.set(
                         CollisionComponent(shapes: [.generateSphere(radius: 5)])
                     )
-
+                    hemisphere.orientation = simd_quatf(angle: -.pi / 2, axis: SIMD3<Float>(0, 1, 0))
                     fullHemisphereEntity = hemisphere
                     content.add(hemisphere)
                 }
@@ -96,8 +96,6 @@ struct HemisphereView: View {
         }
     }
 }
-
-// MARK: - MeshResource Extensions
 
 extension MeshResource {
     static func generateHemisphere(radius: Float, segments: Int = 36, rings: Int = 18) -> MeshResource {
