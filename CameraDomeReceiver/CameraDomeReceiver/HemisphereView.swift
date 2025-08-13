@@ -4,7 +4,7 @@ import Foundation
 import Combine
 
 struct HemisphereView: View {
-    @ObservedObject var udpReceiver: UDPReceiver
+    @ObservedObject var udpReceiver: UVCVideoReceiver
     @State private var backHemisphereEntity: ModelEntity?
     @State private var frontHemisphereEntity: ModelEntity?
     @State private var fullHemisphereEntity: ModelEntity?

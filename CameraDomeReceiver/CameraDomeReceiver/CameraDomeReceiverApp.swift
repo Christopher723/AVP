@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct UDPVideoHemisphereApp: App {
-    @StateObject private var udpReceiver = UDPReceiver(port: 15001)
+    @StateObject private var udpReceiver = UVCVideoReceiver()
     @State private var useSplitHemisphere = false
     
     var body: some Scene {

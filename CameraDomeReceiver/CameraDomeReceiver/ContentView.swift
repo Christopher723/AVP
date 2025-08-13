@@ -2,7 +2,7 @@ import SwiftUI
 import RealityKitContent
 
 struct ContentView: View {
-    @ObservedObject var udpReceiver: UDPReceiver
+    @ObservedObject var udpReceiver: UVCVideoReceiver
     @Environment(\.openImmersiveSpace) private var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
     @Binding var useSplitHemisphere: Bool
